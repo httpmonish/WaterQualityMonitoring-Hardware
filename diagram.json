@@ -1,0 +1,338 @@
+{
+  "version": 1,
+  "author": "Smart Water Quality Monitoring",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 100,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_ph",
+      "top": -120,
+      "left": -280,
+      "attrs": {
+        "label": "pH SENSOR (SIM)"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_turb",
+      "top": -20,
+      "left": -280,
+      "attrs": {
+        "label": "TURBIDITY (SIM)"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_poor",
+      "top": 90,
+      "left": -200,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_poor",
+      "top": 80,
+      "left": -290,
+      "attrs": {
+        "color": "red",
+        "label": "POOR"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 160,
+      "left": -280,
+      "attrs": {
+        "label": "ALARM"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_good",
+      "top": 260,
+      "left": -200,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_good",
+      "top": 250,
+      "left": -290,
+      "attrs": {
+        "color": "green",
+        "label": "GOOD"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": 350,
+      "left": -240,
+      "attrs": {
+        "label": "RELAY"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 370,
+      "left": -340,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 360,
+      "left": -420,
+      "attrs": {
+        "color": "green",
+        "label": "PUMP"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_warn",
+      "top": 460,
+      "left": -200,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_warn",
+      "top": 450,
+      "left": -290,
+      "attrs": {
+        "color": "yellow",
+        "label": "WARN"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 250,
+      "left": 270,
+      "attrs": {
+        "value": "4700"
+      }
+    },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temp1",
+      "top": 240,
+      "left": 360,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "pot_ph:SIG",
+      "esp:34",
+      "green",
+      []
+    ],
+    [
+      "pot_ph:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "pot_ph:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "pot_turb:SIG",
+      "esp:35",
+      "orange",
+      []
+    ],
+    [
+      "pot_turb:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "pot_turb:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:32",
+      "r_poor:1",
+      "red",
+      []
+    ],
+    [
+      "r_poor:2",
+      "led_poor:A",
+      "red",
+      []
+    ],
+    [
+      "led_poor:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:33",
+      "bz1:1",
+      "cyan",
+      []
+    ],
+    [
+      "bz1:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:25",
+      "r_good:1",
+      "green",
+      []
+    ],
+    [
+      "r_good:2",
+      "led_good:A",
+      "green",
+      []
+    ],
+    [
+      "led_good:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:26",
+      "relay1:IN",
+      "blue",
+      []
+    ],
+    [
+      "relay1:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "relay1:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "relay1:COM",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "relay1:NO",
+      "r2:1",
+      "purple",
+      []
+    ],
+    [
+      "r2:2",
+      "led1:A",
+      "purple",
+      []
+    ],
+    [
+      "led1:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:27",
+      "r_warn:1",
+      "gold",
+      []
+    ],
+    [
+      "r_warn:2",
+      "led_warn:A",
+      "gold",
+      []
+    ],
+    [
+      "led_warn:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:4",
+      "temp1:DQ",
+      "yellow",
+      []
+    ],
+    [
+      "temp1:DQ",
+      "r1:1",
+      "yellow",
+      []
+    ],
+    [
+      "r1:2",
+      "esp:3V3",
+      "red",
+      [
+        "v-200",
+        "h-280"
+      ]
+    ],
+    [
+      "temp1:VCC",
+      "r1:2",
+      "red",
+      []
+    ],
+    [
+      "temp1:GND",
+      "esp:GND.2",
+      "black",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf"
+  },
+  "dependencies": {}
+}
