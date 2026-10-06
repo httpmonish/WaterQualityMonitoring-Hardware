@@ -1,6 +1,18 @@
 # IoT-Based Smart Water Quality Monitoring and Automated Response System
 
-A simulation-only IoT mini-project built for embedded systems and water quality monitoring. The project runs in the **Wokwi Simulator** within **Visual Studio Code**, configured using **PlatformIO** targeting an **ESP32 DevKit C V4**.
+A simulation-only IoT project built for embedded systems and water quality monitoring. The project runs in the **Wokwi Simulator** within **Visual Studio Code**, configured using **PlatformIO** targeting an **ESP32 DevKit C V4**.
+
+📖 **[Read the Full Academic Project Report (REPORT.md)](REPORT.md)**
+
+---
+
+## 📸 Simulation Architecture & Circuit
+
+### Complete Wokwi Circuit Layout
+![Wokwi Complete Simulation Circuit Layout](docs/images/wokwi_simulation_diagram_1791266477603.jpg)
+
+### Sensor Subsystem Breakdown
+![Wokwi Simulation Sensor Interface Breakdown](docs/images/water_quality_sensors_1791266510826.jpg)
 
 ---
 
@@ -49,9 +61,9 @@ The system monitors water parameters in real time, classifies overall water qual
   * **WARNING:** $20.0 \le \text{Turbidity} \le 40.0\text{ NTU}$
   * **POOR:** $> 40.0\text{ NTU}$
 * **Temperature:**
-  * **GOOD:** $15.0 \le T \le 35.0\text{ ^\circ C}$
-  * **WARNING:** $5.0 \le T < 15.0\text{ ^\circ C}$ or $35.0 < T \le 40.0\text{ ^\circ C}$
-  * **POOR:** $T < 5.0\text{ ^\circ C}$, $T > 40.0\text{ ^\circ C}$, or Disconnected ($-127\text{ ^\circ C}$)
+  * **GOOD:** $15.0 \le T \le 35.0\ ^\circ\text{C}$
+  * **WARNING:** $5.0 \le T < 15.0\ ^\circ\text{C}$ or $35.0 < T \le 40.0\ ^\circ\text{C}$
+  * **POOR:** $T < 5.0\ ^\circ\text{C}$, $T > 40.0\ ^\circ\text{C}$, or Disconnected ($-127\ ^\circ\text{C}$)
 * **Overall Quality:** Worst-case evaluation ($\text{POOR} > \text{WARNING} > \text{GOOD}$).
 
 ---
